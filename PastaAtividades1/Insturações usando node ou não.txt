@@ -1,0 +1,37 @@
+Aqui estão algumas instruções caso você queira executar esses códigos usando node ou algum afim.
+
+npm install readline-sync
+
+ instalando o realine sync você será capaz de utilizar  ferramentas como o : 
+
+ const readline = require('readline-sync'); e o 
+ let raio = parseFloat(readline.question("Defina o valor do raio: ")); 
+
+ utilizando o readline.question() para fazer as perguntas no lugar do PROMPT.
+
+ se não quiser baixar nenhuma biblioteca você também poderá usar outro método porém será mais complexo.
+
+ CÓDIGO DE EXEMPLO ::
+
+
+ const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+console.log("Vamos definir a área do círculo, para isso vamos definir o raio.");
+
+rl.question("Defina o valor do raio: ", (raio) => {
+    raio = parseFloat(raio);
+    let pi = 3.14;
+
+    function areaCirculo(pi, raio) {
+        return pi * (raio * raio);
+    }
+
+    console.log("A área do círculo é equivalente a: " + areaCirculo(pi, raio).toFixed(2));
+
+    rl.close(); // Fecha a interface de leitura
+});
